@@ -1,0 +1,57 @@
+body{
+     background-color: rgb(255, 194, 241);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+}
+
+
+
+.sell-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+}
+
+.sell-section h1 {
+  text-align: center;
+}
+
+.sell-section p {
+  text-align: center;
+  color: gray;
+  margin-bottom: 30px;
+}
+
+.sell-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sell-form label {
+  font-weight: 600;
+}
+
+.sell-form input,
+.sell-form select,
+.sell-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.sell-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.sell-form button {
+  margin-top: 15px;
+  background: #6a1bb9;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+

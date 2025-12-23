@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="css/role.css">
+    
+
+</head>
+<body>
+    <div class="header">
+        <div class="left-section">
+            <img src="images/logo.jpg" class="logo" alt="logo">
+        </div>
+        <div style="display: inline-block;margin-bottom: 40px;">
+        <h1>Welcome to Kitta</h1>
+        <h2>Your hub for digital creation and discovery.</h2>
+        </div>
+        <div style="display: inline-block;">
+     <button onclick="window.location.href='html/login.html'" class="login-btn">Login</button>
+  </div>
+    </div>
+
+    <header class="top-bar">
+    <div class="search-wrapper">
+      <img src="images/search.png" class="search-logo" alt="search">
+      <input type="text" id="searchInput" placeholder="Search">
+    </div>
+  </div>
+  </header>
+  
+<div class="nav-bar">
+        <div class="nav-div">
+            <a href="index.html">Home</a>
+            <a href="html/sell.html" class="sell-nav">Sell</a>
+            <div class="dropdown">
+                <a href="#" id="categoryBtn">Category▾</a>
+                    <div class="dropdown-menu" id="categoryMenu">
+                        <a href="#">Books</a>
+                        <a href="#">Courses</a>
+                        <a href="#">Templates</a>
+                        <a href="#">Music</a>
+                    </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" id="filterbtn">Filter▾</a>
+                <div class="dropdown-menu" id="filtermenu">
+                    <a href="#">Price:Low to high</a>
+                    <a href="#">Price:High to low</a>
+                    <a href="#">Bestseller</a>
+                </div>
+            </div>
+            <a href="html/order.html">Your Orders</a>
+            <a href="#review">Reviews</a>
+            <a href="#help">Help</a>
+            <a href="#contact">Contact</a>
+        </div>
+</div>
+
+<section class="products-section">
+  <h2 class="section-title">Featured Digital Products</h2>
+
+  <div class="products-grid">
+    <!-- Product Card -->
+    <div class="product-card" onclick="openProduct(1)">
+      <img src="images/book1.jpg" alt="product" class="product-image">
+      <div class="product-info">
+        <h3>The Alchemist</h3>
+        <p class="creator"> by Paulo Coelho</p>
+        <div class="rating">⭐ 4.8 <span>(120)</span></div>
+        <div class="price-row">
+          <span class="price">₹499</span>
+          <button class="buy-btn" type="button" onclick="event.stopPropagation()">Buy</button>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="product-card" onclick="openProduct(2)">
+      <img src="images/book2.jpg" alt="product" class="product-image">
+      <div class="product-info">
+        <h3>The Little Prince</h3>
+        <p class="creator">by Antoine de Saint-Exupéry</p>
+        <div class="rating">⭐ 4.4 <span>(38)</span></div>
+        <div class="price-row">
+          <span class="price">₹299</span>
+          <button class="buy-btn" type="button" onclick="event.stopPropagation()">Buy</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openProduct(3)">
+      <img src="images/course1.jpg" alt="product" class="product-image">
+      <div class="product-info">
+        <h3>Mathematics</h3>
+        <p class="creator">by Swayam</p>
+        <div class="rating">⭐ 4.7 <span>(72)</span></div>
+        <div class="price-row">
+          <span class="price">₹999</span>
+          <button class="buy-btn" type="button" onclick="event.stopPropagation()">Buy</button>
+        </div>
+      </div>
+    </div>
+
+     <div class="product-card" onclick="openProduct(4)">
+      <img src="images/course2.jpg" alt="product" class="product-image">
+      <div class="product-info">
+        <h3>GATE crash course</h3>
+        <p class="creator">by Coursera</p>
+        <div class="rating">⭐ 4.2 <span>(232)</span></div>
+        <div class="price-row">
+          <span class="price">₹1999</span>
+          <button class="buy-btn" type="button" onclick="event.stopPropagation()">Buy</button>
+        </div>
+      </div>
+    </div>
+
+</div>
+</section>
+
+<section id="review">
+    <h1 style="text-align: center;color: #2b0a5e;;margin-top: 70px;">Happy Customer Reviews</h1>
+    <section class="review-grid">
+        <div class="review-div">
+            <p>&#x2B50 &#x2B50 &#x2B50 &#x2B50 &#x2B50</p>
+            <p class="Description">"Kitta made it incredibly simple to set up my store and start selling my design templates. The WhatsApp delivery is a game-changer!"</p>
+            <p class="reviewer">Sarah D., UI/UX Designer</p>
+        </div>
+
+        <div class="review-div">
+            <p>&#x2B50 &#x2B50 &#x2B50 &#x2B50 &#x2B50</p>
+            <p class="Description">"I was looking for a straightforward platform without hefty fees. Kitta delivered. My customers love the instant access to my courses."</p>
+            <p class="reviewer">Mike R., Online Educator</p>
+        </div>
+
+        <div class="review-div">
+            <p>&#x2B50 &#x2B50 &#x2B50 &#x2B50 &#x2B50</p>
+            <p class="Description">"Buying digital products on Kitta is super smooth. Clean UI, fast delivery, and no confusion at all. Highly recommended!"</p>
+            <p class="reviewer">Ananya K., Engineering Student</p>
+        </div>
+
+         <div class="review-div">
+            <p>&#x2B50 &#x2B50 &#x2B50 &#x2B50 &#x2B50</p>
+            <p class="Description">"I switched to Kitta because of its simplicity. No unnecessary steps, no confusion — just sell and grow."</p>
+            <p class="reviewer">Arjun K., Course Instructor</p>
+        </div>
+    </section>
+</section>
+
+<section id="help">
+  <h1>Help & Support</h1>
+
+  <p><strong>How do I buy a product?</strong><br>
+  Choose a product, complete payment, and receive it instantly.</p>
+
+  <p><strong>How do I sell on Kitta?</strong><br>
+  Click Sell, upload your product, and start earning.</p>
+</section>
+
+<section id="contact">
+  <h1>Contact Us</h1>
+
+  <p>
+    Need help or have questions? We’re here to support you.
+    Reach out to us using the details below.
+  </p>
+
+  <div class="contact-details">
+    <p><strong>Email:</strong> support@kitta.com</p>
+    <p><strong>Phone:</strong> +91 98765 43XXX</p>
+    <p><strong>WhatsApp:</strong> Available for instant support</p>
+    <p><strong>Support Hours:</strong> Mon – Sat, 9 AM – 7 PM</p>
+  </div>
+</section>
+
+
+
+
+<script>
+  const categoryBtn = document.getElementById("categoryBtn");
+  const categoryMenu = document.getElementById("categoryMenu");
+  categoryBtn.addEventListener("click", function (e) {
+    e.preventDefault(); // stops page jump
+    categoryMenu.style.display =
+      categoryMenu.style.display === "block" ? "none" : "block";
+  });
+
+
+  const filterbtn = document.getElementById("filterbtn");
+  const filtermenu = document.getElementById("filtermenu");
+  filterbtn.addEventListener("click", function (e) {
+    e.preventDefault(); // stops page jump
+    filtermenu.style.display =
+      filtermenu.style.display === "block" ? "none" : "block";
+  });
+
+
+
+  /*search*/
+  const searchInput = document.getElementById("searchInput");
+const productCards = document.querySelectorAll(".product-card");
+searchInput.addEventListener("keyup", function () {
+  const searchValue = searchInput.value.toLowerCase();
+
+  productCards.forEach(product => {
+    const productName = product.querySelector("h3").innerText.toLowerCase();
+
+    if (productName.includes(searchValue)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+});
+
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>

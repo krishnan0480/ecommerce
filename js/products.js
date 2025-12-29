@@ -4,6 +4,7 @@ const products=[
         name:"The Alchemist",
         price:499,
         image:"../images/book1.jpg",
+        rating:4.8,
         description:"The Alchemist by Paulo Coelho is about an Andalusian shepherd boy, Santiago, who journeys to the Egyptian pyramids in search of treasure after having recurring dreams, discovering his Personal Legend and learning profound lessons about destiny, love, self-discovery, and listening to his heart along the way."
     },
 
@@ -12,6 +13,7 @@ const products=[
         name:"The Little Prince",
         price:299,
         image:"../images/book2.jpg",
+         rating:4.4,
         description:"The Little Prince is a poetic novella about a pilot stranded in the Sahara Desert who meets a young prince from a tiny asteroid, exploring themes of loneliness, friendship, love, loss, and the contrast between childish imagination and adult seriousness, centered on the idea that what is essential is invisible to the eye."
     },
 
@@ -20,6 +22,7 @@ const products=[
         name:"Mathematics",
         price:999,
         image:"../images/course1.jpg",
+        rating:4.7,
         description:"A math course covers fundamental to advanced topics like algebra, calculus, statistics, geometry, and discrete math, focusing on problem-solving and logical reasoning, with options ranging from basic arithmetic to specialized areas for fields like data science, engineering, or machine learning, available through online platforms like Coursera, Udemy, Khan Academy, or universities."
     },
 
@@ -28,6 +31,7 @@ const products=[
         name:"GATE crash course",
         price:1999,
         image:"../images/course2.jpg",
+        rating:4.2,
         description:"A GATE crash course is an intensive, short-term program designed for quick revision and focused preparation for the Graduate Aptitude Test in Engineering (GATE), offering live/recorded classes, expert faculty, practice tests, and PYQ (Previous Year Questions) practice, emphasizing high-yield topics, problem-solving, and time management for late joiners or rank boosters."
     }
 

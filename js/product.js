@@ -10,6 +10,6 @@ if (product) {
   document.getElementById("productImage").src = product.image;
   document.getElementById("productName").innerText = product.name;
   document.getElementById("productDesc").innerText = product.description;
+  document.getElementById("productRating").innerText = "⭐"+ product.rating +"/5";
   document.getElementById("productPrice").innerText = "₹" + product.price;
 }
-

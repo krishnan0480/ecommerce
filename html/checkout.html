@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="../css/checkout.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <h1>Fill customer details to place order</h1>
+
+        <form id="checkoutForm">
+            <input type="text" placeholder="Enter full name" required>
+            <input type="email" placeholder="Enter your Email Address" required>
+            <input type="tel" placeholder="Enter your Phone Number" required>
+            <textarea placeholder="Enter your Address" required></textarea>
+            <input type="text" placeholder="Landmark">
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("checkoutForm").addEventListener("submit",function(e){
+            e.preventDefault();
+            alert("Order placed succeessfully!");
+            window.location.href="../index.html"
+        });
+    </script>
+</body>
+</html>

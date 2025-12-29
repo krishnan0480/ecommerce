@@ -12,4 +12,7 @@ if (product) {
   document.getElementById("productDesc").innerText = product.description;
   document.getElementById("productRating").innerText = "⭐"+ product.rating +"/5";
   document.getElementById("productPrice").innerText = "₹" + product.price;
+  document.getElementById("buyBtn").onclick= function(){
+  window.location.href="../html/checkout.html";
+  };
 }

@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sell Product</title>
-    <link rel="stylesheet" href="../css/sell.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Product</title>
+  <link rel="stylesheet" href="../css/sell.css">
 </head>
 <body>
-    <section class="sell-section">
+
+<section class="sell-section">
   <h1>Sell Your Digital Product</h1>
   <p>Upload and start selling your digital creations.</p>
 
-  <form class="sell-form">
+  <form id="productForm" class="sell-form">
 
     <label>Product Title</label>
-    <input type="text" placeholder="Enter product name">
+    <input type="text" id="name" placeholder="Enter product name" required>
 
     <label>Creator Name</label>
-    <input type="text" placeholder="Your name">
+    <input type="text" id="creator" placeholder="Your name" required>
 
     <label>Product Category</label>
-    <select>
-      <option>Books</option>
-      <option>Courses</option>
-      <option>Templates</option>
-      <option>Other</option>
+    <select id="category" required>
+      <option value="Books">Books</option>
+      <option value="Courses">Courses</option>
+      <option value="Templates">Templates</option>
+      <option value="Other">Other</option>
     </select>
 
     <label>Price (₹)</label>
-    <input type="number" placeholder="Enter price">
+    <input type="number" id="price" placeholder="Enter price" required>
 
     <label>Product Description</label>
-    <textarea placeholder="Describe your product"></textarea>
+    <textarea id="description" placeholder="Describe your product" required></textarea>
 
-    <label>Upload Cover Image</label>
-    <input type="file">
+    <label>Cover Image</label>
+    <input type="file" id="image" placeholder="Add your cover photo">
 
-    <button type="submit">Submit Product</button>
+    <button type="submit">Publish</button>
 
   </form>
 </section>
 
+<script src="../js/sell.js"></script>
 </body>
 </html>

@@ -1,6 +1,4 @@
-/* =====================
-   GLOBAL RESET & THEME
-===================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -29,17 +27,12 @@ body {
   color: var(--text-dark);
 }
 
-/* =====================
-   LAYOUT
-===================== */
 .dashboard {
   display: flex;
   min-height: 100vh;
 }
 
-/* =====================
-   SIDEBAR
-===================== */
+
 .sidebar {
   width: 260px;
   background: linear-gradient(180deg, var(--brand-pink), var(--brand-purple));

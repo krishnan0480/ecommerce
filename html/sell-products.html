@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Products</title>
+  <link rel="stylesheet" href="../css/sell-products.css">
+</head>
+<body>
+
+<div class="page">
+
+  <header class="page-header">
+    <div>
+      <h1>My Products</h1>
+      <p>Manage and monitor your digital products</p>
+    </div>
+    <button class="primary-btn" onclick="goToSell()">+ Add Product</button>
+  </header>
+
+  <!-- ONE wrapper only -->
+  <div class="products-wrapper">
+    <!-- JS will inject here -->
+    <div id="productsArea"></div>
+  </div>
+
+</div>
+
+<script>
+  function goToSell() {
+    window.location.href = "sell.html";
+  }
+
+  const products = JSON.parse(localStorage.getItem("sellerProducts")) || [];
+  const area = document.getElementById("productsArea");
+
+  if (products.length === 0) {
+    area.innerHTML = `
+      <div class="empty-card">
+        <h2>Start selling on Kitta</h2>
+        <p>You haven’t added any products yet.</p>
+        <button class="primary-btn" onclick="goToSell()">Add your first product</button>
+      </div>
+    `;
+  } else {
+    area.innerHTML = `
+      <div class="products-grid">
+        ${products.map(p => `
+          <div class="product-card">
+            <img src="${p.image}">
+            <h3>${p.name}</h3>
+            <p class="category">${p.category}</p>
+            <p class="price">₹${p.price}</p>
+            <p class="sales">Sales: ${p.sales || 0}</p>
+          </div>
+        `).join("")}
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>

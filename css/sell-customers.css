@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #f8fafc;
+  color: #1f2937;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* HEADER */
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 28px;
+}
+
+.page-header p {
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+/* WRAPPER */
+.customers-wrapper {
+  background: white;
+  border-radius: 22px;
+  padding: 30px;
+  border: 1px solid #f1d4e8;
+  box-shadow: 0 14px 35px rgba(236,72,153,0.1);
+  min-height: 350px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* EMPTY STATE */
+.empty-card {
+  text-align: center;
+}
+
+.empty-card h2 {
+  margin-bottom: 10px;
+}
+
+.empty-card p {
+  color: #6b7280;
+}
+
+/* TABLE */
+.customers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.customers-table th {
+  text-align: left;
+  padding: 14px;
+  background: #fce7f3;
+  color: #9d174d;
+}
+
+.customers-table td {
+  padding: 14px;
+  border-top: 1px solid #f1d4e8;
+}
+
+.customers-table tr:hover {
+  background: #fdf2f8;
+}

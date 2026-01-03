@@ -19,18 +19,18 @@
 
     <nav class="menu">
       <a class="active">Dashboard</a>
-      <a>Products</a>
-      <a>Orders</a>
-      <a>Customers</a>
-      <a>Payouts</a>
-      <a>Discounts</a>
-      <a>Affiliates</a>
+      <a href="sell-products.html">Products</a>
+      <a href="sell-orders.html">Orders</a>
+      <a href="sell-customers.html">Customers</a>
+      <a href="sell-payout.html">Payouts</a>
+      <a href="sell-discount.html">Discounts</a>
+      <a href="sell-storefront.html">StoreFront</a>
     </nav>
 
     <div class="profile">
       <div class="avatar">K</div>
       <div>
-        <h4>Krishnan K</h4>
+        <h4 id="sellerName"></h4>
         <span>seller@kitta.com</span>
       </div>
     </div>
@@ -42,7 +42,7 @@
     <!-- HEADER -->
     <header class="top-header">
       <div>
-        <h1>Krishnan K's Store</h1>
+        <h1 id="storeTitle"></h1>
         <p>Manage your digital products and track your sales</p>
       </div>
       <a href="sell.html">
@@ -92,5 +92,14 @@
 
 
 <script src="js/main.js"></script>
+
+<script>
+  const userName=localStorage.getItem("userName") || "My";
+  document.getElementById("storeTitle").innerText="${userName}'s Store";
+</script>
+
+<script>
+  document.getElementById("sellerName").innerText=userName;
+</script>
 </body>
 </html>

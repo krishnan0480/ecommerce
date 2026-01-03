@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payouts</title>
+  <link rel="stylesheet" href="../css/sell-payout.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div>
+      <h1>Payouts</h1>
+      <p>Track your earnings and payout history</p>
+    </div>
+    <button class="primary-btn" onclick="requestPayout()">Request Payout</button>
+  </header>
+
+  <!-- SUMMARY CARDS -->
+  <section class="summary">
+    <div class="summary-card">
+      <p>Total Revenue</p>
+      <h2 id="totalRevenue">₹0</h2>
+    </div>
+    <div class="summary-card">
+      <p>Platform Fee (10%)</p>
+      <h2 id="platformFee">₹0</h2>
+    </div>
+    <div class="summary-card">
+      <p>Net Earnings</p>
+      <h2 id="netEarnings">₹0</h2>
+    </div>
+    <div class="summary-card">
+      <p>Available for Payout</p>
+      <h2 id="availablePayout">₹0</h2>
+    </div>
+  </section>
+
+  <!-- PAYOUT HISTORY -->
+  <div class="payouts-wrapper">
+    <h3>Payout History</h3>
+    <div id="payoutsArea"></div>
+  </div>
+
+</div>
+
+<script>
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  const payouts = JSON.parse(localStorage.getItem("payouts")) || [];
+
+  const totalRevenue = orders.reduce((sum, o) => sum + Number(o.price), 0);
+  const platformFee = Math.round(totalRevenue * 0.10);
+  const netEarnings = totalRevenue - platformFee;
+  const paidOut = payouts.reduce((sum, p) => sum + p.amount, 0);
+  const available = netEarnings - paidOut;
+
+  document.getElementById("totalRevenue").innerText = "₹" + totalRevenue;
+  document.getElementById("platformFee").innerText = "₹" + platformFee;
+  document.getElementById("netEarnings").innerText = "₹" + netEarnings;
+  document.getElementById("availablePayout").innerText = "₹" + available;
+
+  const area = document.getElementById("payoutsArea");
+
+  if (payouts.length === 0) {
+    area.innerHTML = `
+      <div class="empty-card">
+        <p>No payouts requested yet.</p>
+      </div>
+    `;
+  } else {
+    area.innerHTML = `
+      <table class="payouts-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${payouts.map(p => `
+            <tr>
+              <td>${p.date}</td>
+              <td>₹${p.amount}</td>
+              <td><span class="status ${p.status}">${p.status}</span></td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    `;
+  }
+
+  function requestPayout() {
+    if (available <= 0) {
+      alert("No earnings available for payout");
+      return;
+    }
+
+    payouts.push({
+      id: Date.now(),
+      amount: available,
+      date: new Date().toLocaleDateString(),
+      status: "pending"
+    });
+
+    localStorage.setItem("payouts", JSON.stringify(payouts));
+    alert("Payout requested successfully!");
+    location.reload();
+  }
+</script>
+
+</body>
+</html>

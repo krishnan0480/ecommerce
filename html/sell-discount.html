@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discount Codes</title>
+  <link rel="stylesheet" href="../css/sell-discount.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div>
+      <h1>Discounts</h1>
+      <p>Create and manage discount codes for your products</p>
+    </div>
+  </header>
+
+  <!-- CREATE DISCOUNT -->
+  <section class="create-discount">
+    <h3>Create Discount</h3>
+
+    <form id="discountForm">
+      <input type="text" id="code" placeholder="DISCOUNT CODE" required>
+
+      <select id="type">
+        <option value="percent">Percentage (%)</option>
+        <option value="flat">Flat (₹)</option>
+      </select>
+
+      <input type="number" id="value" placeholder="Discount value" required>
+
+      <button type="submit" class="primary-btn">Create</button>
+    </form>
+  </section>
+
+  <!-- DISCOUNT LIST -->
+  <section class="discounts-wrapper">
+    <h3>Active Discount Codes</h3>
+    <div id="discountsArea"></div>
+  </section>
+
+</div>
+
+<script>
+  const form = document.getElementById("discountForm");
+  const area = document.getElementById("discountsArea");
+
+  let discounts = JSON.parse(localStorage.getItem("discounts")) || [];
+
+  function renderDiscounts() {
+    if (discounts.length === 0) {
+      area.innerHTML = "<p class='empty'>No discounts created yet.</p>";
+      return;
+    }
+
+    area.innerHTML = `
+      <table class="discount-table">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Type</th>
+            <th>Value</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${discounts.map((d, i) => `
+            <tr>
+              <td>${d.code}</td>
+              <td>${d.type === "percent" ? "%" : "₹"}</td>
+              <td>${d.value}</td>
+              <td>
+                <button class="delete-btn" onclick="deleteDiscount(${i})">Delete</button>
+              </td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    `;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const code = document.getElementById("code").value.toUpperCase();
+    const type = document.getElementById("type").value;
+    const value = Number(document.getElementById("value").value);
+
+    discounts.push({
+      code,
+      type,
+      value
+    });
+
+    localStorage.setItem("discounts", JSON.stringify(discounts));
+    form.reset();
+    renderDiscounts();
+  });
+
+  function deleteDiscount(index) {
+    discounts.splice(index, 1);
+    localStorage.setItem("discounts", JSON.stringify(discounts));
+    renderDiscounts();
+  }
+
+  renderDiscounts();
+</script>
+
+</body>
+</html>

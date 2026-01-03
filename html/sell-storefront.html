@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Storefront</title>
+  <link rel="stylesheet" href="../css/sell-storefront.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div>
+      <h1>Storefront</h1>
+      <p>Manage how your store appears to customers</p>
+    </div>
+  </header>
+
+  <!-- STOREFRONT CARD -->
+  <section class="storefront-card">
+
+    <div class="store-preview">
+      <img id="storeImage" src="../images/store-placeholder.png" alt="Store Image">
+      <h2 id="storeName">Your Store Name</h2>
+      <p id="storeDesc">Your store description will appear here.</p>
+    </div>
+
+    <div class="store-details">
+      <p><strong>Website:</strong> <span id="storeWebsite">—</span></p>
+      <p><strong>Location:</strong> <span id="storeLocation">—</span></p>
+
+      <div class="social-links">
+        <a id="insta" target="_blank">Instagram</a>
+        <a id="twitter" target="_blank">Twitter</a>
+        <a id="linkedin" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- EDIT FORM -->
+  <section class="edit-store">
+    <h3>Edit Storefront</h3>
+
+    <form id="storeForm">
+      <input type="text" id="name" placeholder="Store name" required>
+      <textarea id="desc" placeholder="Store description"></textarea>
+      <input type="text" id="image" placeholder="Store image URL">
+      <input type="text" id="website" placeholder="Website link">
+      <input type="text" id="location" placeholder="Location">
+
+      <input type="text" id="instagram" placeholder="Instagram link">
+      <input type="text" id="twitter" placeholder="Twitter link">
+      <input type="text" id="linkedin" placeholder="LinkedIn link">
+
+      <button type="submit" class="primary-btn">Save Storefront</button>
+    </form>
+  </section>
+
+</div>
+
+<script>
+  const storeData = JSON.parse(localStorage.getItem("storefront")) || {};
+
+  function loadStore() {
+    document.getElementById("storeName").innerText = storeData.name || "Your Store Name";
+    document.getElementById("storeDesc").innerText = storeData.desc || "Your store description will appear here.";
+    document.getElementById("storeImage").src = storeData.image || "../images/store-placeholder.png";
+    document.getElementById("storeWebsite").innerText = storeData.website || "—";
+    document.getElementById("storeLocation").innerText = storeData.location || "—";
+
+    document.getElementById("insta").href = storeData.instagram || "#";
+    document.getElementById("twitter").href = storeData.twitter || "#";
+    document.getElementById("linkedin").href = storeData.linkedin || "#";
+  }
+
+  loadStore();
+
+  document.getElementById("storeForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const newStore = {
+      name: name.value,
+      desc: desc.value,
+      image: image.value,
+      website: website.value,
+      location: location.value,
+      instagram: instagram.value,
+      twitter: twitter.value,
+      linkedin: linkedin.value
+    };
+
+    localStorage.setItem("storefront", JSON.stringify(newStore));
+    alert("Storefront updated!");
+    location.reload();
+  });
+</script>
+
+</body>
+</html>

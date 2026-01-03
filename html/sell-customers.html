@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customers</title>
+  <link rel="stylesheet" href="../css/sell-customers.css">
+</head>
+<body>
+
+<div class="page">
+
+  <header class="page-header">
+    <div>
+      <h1>Customers</h1>
+      <p>People who purchased your products</p>
+    </div>
+  </header>
+
+  <div class="customers-wrapper">
+    <div id="customersArea"></div>
+  </div>
+
+</div>
+
+<script>
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  const area = document.getElementById("customersArea");
+
+  if (orders.length === 0) {
+    area.innerHTML = `
+      <div class="empty-card">
+        <h2>No customers yet</h2>
+        <p>Your customers will appear here once orders are placed.</p>
+      </div>
+    `;
+  } else {
+    // Group customers
+    const customers = {};
+
+    orders.forEach(order => {
+      if (!customers[order.buyerName]) {
+        customers[order.buyerName] = {
+          name: order.buyerName,
+          totalOrders: 0,
+          totalSpent: 0,
+          lastOrder: order.date
+        };
+      }
+
+      customers[order.buyerName].totalOrders += 1;
+      customers[order.buyerName].totalSpent += Number(order.price);
+      customers[order.buyerName].lastOrder = order.date;
+    });
+
+    area.innerHTML = `
+      <table class="customers-table">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Total Orders</th>
+            <th>Total Spent</th>
+            <th>Last Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${Object.values(customers).map(c => `
+            <tr>
+              <td>${c.name}</td>
+              <td>${c.totalOrders}</td>
+              <td>₹${c.totalSpent}</td>
+              <td>${c.lastOrder}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    `;
+  }
+</script>
+
+</body>
+</html>

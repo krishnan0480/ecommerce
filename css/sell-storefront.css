@@ -16,6 +16,7 @@ body {
   padding: 0 20px;
 }
 
+
 /* HEADER */
 .page-header {
   margin-bottom: 30px;
@@ -121,6 +122,7 @@ body {
   color: white;
   cursor: pointer;
 }
+
 
 /* RESPONSIVE */
 @media (max-width: 800px) {

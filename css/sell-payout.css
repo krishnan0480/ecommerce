@@ -16,6 +16,7 @@ body {
   padding: 0 20px;
 }
 
+
 /* HEADER */
 .page-header {
   display: flex;
@@ -124,6 +125,7 @@ body {
   background: #bbf7d0;
   color: #166534;
 }
+
 
 /* RESPONSIVE */
 @media (max-width: 800px) {

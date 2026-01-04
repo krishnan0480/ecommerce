@@ -67,3 +67,16 @@ body {
   color: #6a1bb9;
   text-decoration: none;
 }
+
+@media (max-width: 768px) {
+  form {
+    padding: 20px;
+  }
+
+  input,
+  textarea,
+  button {
+    width: 100%;
+    font-size: 14px;
+  }
+}

@@ -18,7 +18,7 @@
         <h2>Your hub for digital creation and discovery.</h2>
         </div>
         <div style="display: inline-block;">
-     <button onclick="window.location.href='html/login.html'" class="login-btn">Login</button>
+     <button class="login-btn" onclick="handleLogin()">Login</button>
   </div>
     </div>
 
@@ -33,7 +33,7 @@
 <div class="nav-bar">
         <div class="nav-div">
             <a href="index.html">Home</a>
-            <a href="html/sell-dashboard.html" class="sell-nav">Sell</a>
+            <a href="#" class="sell-nav" onclick="handleSell(event)">Sell</a>
             <div class="dropdown">
                 <a href="#" id="categoryBtn">Category▾</a>
                     <div class="dropdown-menu" id="categoryMenu">
@@ -63,55 +63,55 @@
 
   <div class="products-grid">
     <!-- Product Card -->
-    <div class="product-card" onclick="openProduct(1)">
-      <img src="images/book1.jpg" alt="product" class="product-image">
+    <div class="product-card">
+      <img src="images/book1.jpg" alt="product" class="product-image" onclick="openProduct(1)">
       <div class="product-info">
-        <h3>The Alchemist</h3>
+        <h3 onclick="openProduct(1)">The Alchemist</h3>
         <p class="creator"> by Paulo Coelho</p>
         <div class="rating">⭐ 4.8 <span>(120)</span></div>
         <div class="price-row">
           <span class="price">₹499</span>
-          <button class="buy-btn" type="button" onclick="buyNow(event,1)">Buy</button>
+          <button class="buy-btn" type="button">Buy</button>
         </div>
       </div>
     </div>
   
 
-    <div class="product-card" onclick="openProduct(2)">
-      <img src="images/book2.jpg" alt="product" class="product-image">
+    <div class="product-card" >
+      <img src="images/book2.jpg" alt="product" class="product-image" onclick="openProduct(2)">
       <div class="product-info">
-        <h3>The Little Prince</h3>
+        <h3 onclick="openProduct(2)">The Little Prince</h3>
         <p class="creator">by Antoine de Saint-Exupéry</p>
         <div class="rating">⭐ 4.4 <span>(38)</span></div>
         <div class="price-row">
           <span class="price">₹299</span>
-          <button class="buy-btn" type="button" onclick="buyNow(event,2)">Buy</button>
+          <button class="buy-btn" type="button">Buy</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" onclick="openProduct(3)">
-      <img src="images/course1.jpg" alt="product" class="product-image">
+    <div class="product-card" >
+      <img src="images/course1.jpg" alt="product" class="product-image" onclick="openProduct(3)">
       <div class="product-info">
-        <h3>Mathematics</h3>
+        <h3 onclick="openProduct(3)">Mathematics</h3>
         <p class="creator">by Swayam</p>
         <div class="rating">⭐ 4.7 <span>(72)</span></div>
         <div class="price-row">
           <span class="price">₹999</span>
-          <button class="buy-btn" type="button" onclick="buyNow(event,3)">Buy</button>
+          <button class="buy-btn" type="button">Buy</button>
         </div>
       </div>
     </div>
 
-     <div class="product-card" onclick="openProduct(4)">
-      <img src="images/course2.jpg" alt="product" class="product-image">
+     <div class="product-card">
+      <img src="images/course2.jpg" alt="product" class="product-image" onclick="openProduct(4)">
       <div class="product-info">
-        <h3>GATE crash course</h3>
+        <h3 onclick="openProduct(4)">GATE crash course</h3>
         <p class="creator">by Coursera</p>
         <div class="rating">⭐ 4.2 <span>(232)</span></div>
         <div class="price-row">
           <span class="price">₹1999</span>
-          <button class="buy-btn" type="button" onclick="buyNow(event,4)">Buy</button>
+          <button class="buy-btn" type="button">Buy</button>
         </div>
       </div>
     </div>
@@ -216,6 +216,8 @@ searchInput.addEventListener("keyup", function () {
 
 </script>
 
+<script src="js/auth.js"></script>
 <script src="js/main.js"></script>
+
 </body>
 </html>

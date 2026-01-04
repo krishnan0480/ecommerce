@@ -1,11 +1,15 @@
-function openProduct(id) {
-  localStorage.setItem("selectedProductId", id);
-  window.location.href = "html/product.html";
+function handleLogin() {
+  window.location.href = "/html/login.html";
 }
 
+function openProduct(id) {
+  localStorage.setItem("selectedProductId", id);
+  window.location.href = "/html/product.html";
+}
 
-function buyNow(event,id){
+function handleSell(event) {
+  event.preventDefault();
   event.stopPropagation();
-  localStorage.setItem("checkoutProductId",id);
-  window.location.href="html/checkout.html";
+  if (!requireLogin("/html/sell-dashboard.html")) return;
+  window.location.href = "/html/sell-dashboard.html";
 }

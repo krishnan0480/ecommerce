@@ -16,6 +16,8 @@ body {
   padding: 0 20px;
 }
 
+
+
 /* HEADER */
 .page-header {
   margin-bottom: 30px;
@@ -108,6 +110,7 @@ body {
   text-align: center;
   padding: 30px;
 }
+
 
 /* RESPONSIVE */
 @media (max-width: 800px) {

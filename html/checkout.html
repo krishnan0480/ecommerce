@@ -27,5 +27,15 @@
             window.location.href="../index.html"
         });
     </script>
+
+    <script src="../js/auth.js"></script>
+<script>
+  if (!localStorage.getItem("isLoggedIn")) {
+    localStorage.setItem("redirectAfterLogin", "/html/checkout.html");
+    window.location.href = "/html/login.html";
+  }
+</script>
+
 </body>
 </html>
+

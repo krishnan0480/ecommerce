@@ -16,3 +16,14 @@ if (product) {
   window.location.href="../html/checkout.html";
   };
 }
+
+
+function handleProductBuy(event) {
+  event.preventDefault();
+  const productId = localStorage.getItem("selectedProductId");
+  console.log("Buy clicked | productId =", productId);
+  if (!requireLogin("/html/checkout.html")) return;
+  localStorage.setItem("checkoutProductId", productId);
+  window.location.href = "/html/checkout.html";
+}
+

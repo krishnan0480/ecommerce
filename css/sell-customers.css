@@ -16,6 +16,7 @@ body {
   padding: 0 20px;
 }
 
+
 /* HEADER */
 .page-header {
   margin-bottom: 30px;
@@ -78,3 +79,4 @@ body {
 .customers-table tr:hover {
   background: #fdf2f8;
 }
+

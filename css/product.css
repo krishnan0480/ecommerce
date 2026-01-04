@@ -100,3 +100,15 @@ body {
   box-shadow: 0 14px 30px rgba(184, 34, 207, 0.6);
 }
 
+@media (max-width: 768px) {
+  #productImage {
+    width: 100%;
+    height: auto;
+  }
+
+  #buyBtn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+

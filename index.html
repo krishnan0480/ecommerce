@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-commerce</title>
     <link rel="stylesheet" href="css/role.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 </head>
 <body>
@@ -37,18 +38,18 @@
             <div class="dropdown">
                 <a href="#" id="categoryBtn">Category▾</a>
                     <div class="dropdown-menu" id="categoryMenu">
-                        <a href="#">Books</a>
-                        <a href="#">Courses</a>
-                        <a href="#">Templates</a>
-                        <a href="#">Music</a>
+                       <a href="#" onclick="handleCategoryClick(event,'all')">All</a>
+                       <a href="#" onclick="handleCategoryClick(event,'books')">Books</a>
+                       <a href="#" onclick="handleCategoryClick(event,'courses')">Courses</a>
+                       <a href="#" onclick="handleCategoryClick(event,'templates')">Templates</a>
                     </div>
             </div>
             <div class="dropdown">
                 <a href="#" id="filterbtn">Filter▾</a>
                 <div class="dropdown-menu" id="filtermenu">
-                    <a href="#">Price:Low to high</a>
-                    <a href="#">Price:High to low</a>
-                    <a href="#">Bestseller</a>
+                  <a href="#" onclick="handleFilterClick(event,'low-high')">Price: Low to High</a>
+                  <a href="#" onclick="handleFilterClick(event,'high-low')">Price: High to Low</a>
+                  <a href="#" onclick="handleFilterClick(event,'rating')">Best Rating</a>
                 </div>
             </div>
             <a href="html/order.html">Your Orders</a>
@@ -63,7 +64,7 @@
 
   <div class="products-grid">
     <!-- Product Card -->
-    <div class="product-card">
+    <div class="product-card" data-category="books" data-price="499" data-rating="4.8">
       <img src="images/book1.jpg" alt="product" class="product-image" onclick="openProduct(1)">
       <div class="product-info">
         <h3 onclick="openProduct(1)">The Alchemist</h3>
@@ -77,7 +78,7 @@
     </div>
   
 
-    <div class="product-card" >
+    <div class="product-card" data-category="books" data-price="299" data-rating="4.4">
       <img src="images/book2.jpg" alt="product" class="product-image" onclick="openProduct(2)">
       <div class="product-info">
         <h3 onclick="openProduct(2)">The Little Prince</h3>
@@ -90,7 +91,7 @@
       </div>
     </div>
 
-    <div class="product-card" >
+    <div class="product-card" data-category="courses" data-price="999" data-rating="4.7">
       <img src="images/course1.jpg" alt="product" class="product-image" onclick="openProduct(3)">
       <div class="product-info">
         <h3 onclick="openProduct(3)">Mathematics</h3>
@@ -103,7 +104,7 @@
       </div>
     </div>
 
-     <div class="product-card">
+     <div class="product-card" data-category="courses" data-price="1999" data-rating="4.2">
       <img src="images/course2.jpg" alt="product" class="product-image" onclick="openProduct(4)">
       <div class="product-info">
         <h3 onclick="openProduct(4)">GATE crash course</h3>
@@ -158,7 +159,7 @@
   Click Sell, upload your product, and start earning.</p>
 </section>
 
-<section id="contact">
+<footer  class="site-footer" id="contact">
   <h1>Contact Us</h1>
 
   <p>
@@ -166,13 +167,14 @@
     Reach out to us using the details below.
   </p>
 
-  <div class="contact-details">
-    <p><strong>Email:</strong> support@kitta.com</p>
-    <p><strong>Phone:</strong> +91 98765 43XXX</p>
-    <p><strong>WhatsApp:</strong> Available for instant support</p>
-    <p><strong>Support Hours:</strong> Mon – Sat, 9 AM – 7 PM</p>
-  </div>
-</section>
+  <div class="footer-icons">
+  <a href="mailto:support@kitta.com" class="icon"><i class="fa-solid fa-envelope"></i></a>
+  <a href="https://wa.me/919876543210" target="_blank" class="icon"><i class="fa-brands fa-whatsapp"></i></a>
+  <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+  <a href="#" target="_blank" class="icon"><i class="fa-solid fa-globe"></i></a>
+</div>
+  <p><strong>Support Hours:</strong> Mon – Sat, 9 AM – 7 PM</p>
+</footer>
 
 
 
@@ -181,9 +183,9 @@
   const categoryBtn = document.getElementById("categoryBtn");
   const categoryMenu = document.getElementById("categoryMenu");
   categoryBtn.addEventListener("click", function (e) {
-    e.preventDefault(); // stops page jump
-    categoryMenu.style.display =
-      categoryMenu.style.display === "block" ? "none" : "block";
+    e.preventDefault(); //stops page jump
+    e.stopPropagation(); 
+    categoryMenu.classList.toggle("show");
   });
 
 
@@ -191,8 +193,8 @@
   const filtermenu = document.getElementById("filtermenu");
   filterbtn.addEventListener("click", function (e) {
     e.preventDefault(); // stops page jump
-    filtermenu.style.display =
-      filtermenu.style.display === "block" ? "none" : "block";
+    e.stopPropagation();
+  filtermenu.classList.toggle("show");
   });
 
 
